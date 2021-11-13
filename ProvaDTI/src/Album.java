@@ -1,8 +1,8 @@
 public class Album {
 
     public String tituloAlbum;
-    private int anoLancamento;
-    private String nomeBanda;
+    public int anoLancamento;
+    public String nomeBanda;
 
     public String getTituloAlbum()
     {

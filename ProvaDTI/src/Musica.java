@@ -1,6 +1,6 @@
 public class Musica extends Album{
     
-    private String tituloMusica;
+    public String tituloMusica;
     private String duracao;
     private boolean favorita;
 
