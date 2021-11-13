@@ -1,22 +1,24 @@
 import java.io.IOException;
+//import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     // Projeto desenvolvido para a particiáção no processo seletivo da DTI
     // Powered by Italo Costa
     public static void main(String[] args) throws Exception {
+        //ArrayList<String> objMusica = new ArrayList();
         boolean sair=false;
+        Scanner Leitura = new Scanner(System.in);
         while(!sair)
         {
             //limparTela();
             mostrarMenu();
-            Scanner Leitura = new Scanner(System.in);;
-            int dadoDigitado=lerOpcaoMenu(Leitura);
-
-            switch(dadoDigitado)
+            int teste =lerOpcaoMenu(Leitura);
+            switch(teste)
             {
                 case 1:
-                    cadastrarAlbum();
+                    limparTela();
+                    cadastrarAlbum(Leitura);
                     break;
                 case 2:
                     pesquisarAlbum();
@@ -51,15 +53,25 @@ public class Main {
 
     public static int lerOpcaoMenu(Scanner scan)
     {
-        System.out.println(">>Digite a opcao desejada");
+        System.out.println("Digite a opcao desejada");
+        System.out.print(">> ");
         int opcaoEscolhida = scan.nextInt();
         scan.nextLine();
         return opcaoEscolhida;
     }
 
-    public static void cadastrarAlbum()
+    public static String lerStringTeclado(Scanner scan)
     {
+        System.out.print(">> ");
+        String opcaoEscolhida = scan.nextLine();
+        return opcaoEscolhida;
+    }
 
+    public static void cadastrarAlbum(Scanner scan)
+    {
+        Musica musica1 =new Musica();
+        System.out.println(" Digite o titulo do Album");
+        musica1.tituloAlbum =lerStringTeclado(scan);
     }
     
     public static void pesquisarAlbum()
