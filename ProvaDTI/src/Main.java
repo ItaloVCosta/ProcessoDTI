@@ -35,9 +35,9 @@ public class Main {
                     for(int i=0;i<objAlbum.size();i++)
                     {   
                         System.out.printf("******Album %d *****\n",i+1);
-                        System.out.println(objAlbum.get(i).tituloAlbum);
-                        System.out.println(objAlbum.get(i).anoLancamento);
-                        System.out.println(objAlbum.get(i).nomeBanda);
+                        System.out.println(objAlbum.get(i).getTituloAlbum());
+                        System.out.println(objAlbum.get(i).getAnoLacamento());
+                        System.out.println(objAlbum.get(i).getNomeBanda());
                     }
                    
                     break;
@@ -81,11 +81,11 @@ public class Main {
     {
         objAlbum.add(new Album());
         System.out.println(" Digite o titulo do Album");
-        objAlbum.get(objAlbum.size()-1).tituloAlbum=lerStringTeclado(scan); 
+        objAlbum.get(objAlbum.size()-1).setTituloAlbum(lerStringTeclado(scan)); 
         System.out.println(" Digite o Ano de lancamento do Album");
-        objAlbum.get(objAlbum.size()-1).anoLancamento=Integer.parseInt(lerStringTeclado(scan));
+        objAlbum.get(objAlbum.size()-1).setAnoLacamento(Integer.parseInt(lerStringTeclado(scan)));
         System.out.println(" Digite o nome da banda do album");
-        objAlbum.get(objAlbum.size()-1).nomeBanda=lerStringTeclado(scan);  
+        objAlbum.get(objAlbum.size()-1).setNomeBanda(lerStringTeclado(scan));  
     }
 
     public static void cadastrarMusica()

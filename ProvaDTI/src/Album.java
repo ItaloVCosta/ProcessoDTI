@@ -1,8 +1,8 @@
 public class Album {
 
-    public String tituloAlbum;
-    public int anoLancamento;
-    public String nomeBanda;
+    private String tituloAlbum;
+    private int anoLancamento;
+    private String nomeBanda;
 
     public String getTituloAlbum()
     {
@@ -14,8 +14,21 @@ public class Album {
         return this.anoLancamento;
     }
 
-    public String nomeBanda()
+    public String getNomeBanda()
     {
         return this.nomeBanda;
+    }
+
+    public void setTituloAlbum( String tituloRecebido)
+    {
+        this.tituloAlbum=tituloRecebido;
+    }
+    public void setAnoLacamento( int anoRecebido)
+    {
+        this.anoLancamento=anoRecebido;
+    }
+    public void setNomeBanda( String nomeBandaRecebido)
+    {
+        this.nomeBanda=nomeBandaRecebido;
     }
 }
