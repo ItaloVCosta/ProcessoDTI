@@ -214,16 +214,16 @@ public class Main {
             }
             tempoPlaylist=0;
             for(int z=0; z<numerosGerados.size();z++)// Loop que refaz a soma de todas as musicas selecionadas a cada ciclo
-            {
                 tempoPlaylist+=objMusica.get(numerosGerados.get(z)).getDuracaoSegundos();
-            } 
-
-
         }
-
-        for (int k = 0; k < objMusica.size(); k++)    
-            System.out.println(numerosGerados.get(k));
-    }
+        System.out.println("Lista de Musicas geradas para voce:");
+        for (int k = 0; k < numerosGerados.size(); k++)
+        {
+            System.out.printf("%d--",k+1);
+            System.out.println(objMusica.get(numerosGerados.get(k)).getTituloMusica());
+        }    
+            
+    }      
 
     public static void limparTela() throws IOException, InterruptedException{
         new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
