@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Main {
     // Projeto desenvolvido para a participação no processo seletivo da DTI
     // Powered by Italo Costa
@@ -24,7 +25,10 @@ public class Main {
                     cadastrarMusica(Leitura,objAlbum,objMusica);
                     break;
                 case 2:
-                    pesquisarAlbum();
+                    int idAlbum=pesquisarAlbum(Leitura,objAlbum,objMusica);
+                    if(idAlbum==-1)
+                        System.out.println("Album nao encontrado, verifique se os parametros de busca foram digitados corretamente \n");
+                        
                     break;
                 case 3:
                     pesquisarMusica();
@@ -125,9 +129,47 @@ public class Main {
 
     }
     
-    public static void pesquisarAlbum()
+    public static int pesquisarAlbum(Scanner scan, ArrayList<Album> objAlbum, ArrayList<Musica> objMusica)
     {
+        System.out.println("Digite o titulo do album, ano de lancamento ou nome da banda:");
+        String dadoLido =lerStringTeclado(scan);
+        int indiceObj=-1;
+        // Verificando pelo Titulo
+        for(int i=0;i<objAlbum.size();i++)
+        {
+            if(objAlbum.get(i).getTituloAlbum().equalsIgnoreCase(dadoLido))
+            {
+                printaInfoAlbum(objAlbum, objMusica,i);
+                indiceObj=0;
+            }
+        }
+        // Verificando pelo ano de lacamento
+        for(int j=0;j<objAlbum.size();j++)
+        {
+            try
+            {
+                if(objAlbum.get(j).getAnoLacamento()==Integer.parseInt(dadoLido))
+                {
+                    printaInfoAlbum(objAlbum, objMusica,j);
+                    indiceObj=0;
+                }
+            }
+            catch(NumberFormatException nfe)
+            {
 
+            }
+            
+        }
+        // Verificando pelo nome da banda
+        for(int k=0;k<objAlbum.size();k++)
+        {
+            if(objAlbum.get(k).getNomeBanda().equalsIgnoreCase(dadoLido))
+            {
+                printaInfoAlbum(objAlbum, objMusica,k);
+                indiceObj=0;
+            }
+        }
+        return indiceObj;
     }
 
     public static void pesquisarMusica()
@@ -142,5 +184,26 @@ public class Main {
 
     public static void limparTela() throws IOException, InterruptedException{
         new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
+    }
+
+    public  static void printaInfoAlbum(ArrayList<Album> objAlbum, ArrayList<Musica> objMusica, int indice)
+    {
+        int i=1;
+        System.out.printf("-----------Album %d -----------\n",indice+1);
+        System.out.println("Titulo do album: " + objAlbum.get(indice).getTituloAlbum());
+        System.out.println("Ano de lancamento: " + objAlbum.get(indice).getAnoLacamento());
+        System.out.println("Nome da banda: " + objAlbum.get(indice).getNomeBanda());
+        //System.out.println(objAlbum.get(i).getIdAlbum());
+        System.out.printf("--Musicas do Album %d--\n",indice+1);
+        for(int j=0;j<objMusica.size();j++)
+        {
+            if(objMusica.get(j).getIdAlbum()==objAlbum.get(indice).getIdAlbum())
+            {
+                System.out.printf("%d-- " + objMusica.get(j).getTituloMusica()+"\n",i);
+                i++;
+            }
+        }
+        System.out.println("-------------------------------");
+                    
     }
 }   
