@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -13,6 +14,7 @@ public class Main {
         Scanner Leitura = new Scanner(System.in);
         int idAlbum;
         limparTela();
+
         while(!sair)
         {
             
@@ -36,7 +38,7 @@ public class Main {
                         System.out.println("Album nao encontrado, verifique se os parametros de busca foram digitados corretamente \n");
                     break;
                 case 4:
-                    gerarPlaylist();
+                    gerarPlaylist(objMusica);
                     break;
                 case 5:
                     sair=true;
@@ -101,6 +103,7 @@ public class Main {
             objMusica.get(objMusica.size()-1).setTituloMusica(lerStringTeclado(scan));
             System.out.println(" Digite a duracao da musica (MM:SS)");
             objMusica.get(objMusica.size()-1).setDuracaoMusica(lerStringTeclado(scan));
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
             System.out.println(" Digite se essa é uma música favorita (S ou N)");
             objMusica.get(objMusica.size()-1).setFavorita(lerStringTeclado(scan));
             System.out.println(" Deseja inserir mais musicas ? (S ou N)");
@@ -189,9 +192,37 @@ public class Main {
         return indiceObj;
     }
 
-    public static void gerarPlaylist()
+    public static void gerarPlaylist( ArrayList<Musica> objMusica)
     {
+        Random gerador = new Random();
+        ArrayList<Integer> numerosGerados = new ArrayList<Integer>();
+        int tempoPlaylist=0;
 
+        // for para gerar numeros aleatorios diferetes
+        for (int i = 0; ((tempoPlaylist <=3600) && (objMusica.size()>i)); i++) 
+        {
+            numerosGerados.add(gerador.nextInt(objMusica.size()));
+            System.out.println(numerosGerados.get(i));
+            for(int j=0;j<numerosGerados.size();j++)
+            {
+                if(numerosGerados.get(i)==numerosGerados.get(j) && i!=j)
+                {
+                    numerosGerados.remove(j);
+                    j--;
+                    i--;
+                }
+            }
+            tempoPlaylist=0;
+            for(int z=0; z<numerosGerados.size();z++)// Loop que refaz a soma de todas as musicas selecionadas a cada ciclo
+            {
+                tempoPlaylist+=objMusica.get(numerosGerados.get(z)).getDuracaoSegundos();
+            } 
+
+
+        }
+
+        for (int k = 0; k < objMusica.size(); k++)    
+            System.out.println(numerosGerados.get(k));
     }
 
     public static void limparTela() throws IOException, InterruptedException{
@@ -212,10 +243,32 @@ public class Main {
             if(objMusica.get(j).getIdAlbum()==objAlbum.get(indice).getIdAlbum())
             {
                 System.out.printf("%d-- " + objMusica.get(j).getTituloMusica()+"\n",i);
+                //System.out.println("Duracao: " + objMusica.get(j).getDuracaoMusica());
+                //System.out.println("Duracao em segundos: " + objMusica.get(j).getDuracaoSegundos());
                 i++;
             }
         }
         System.out.println("-------------------------------");
                     
+    }
+    
+    public static int converteTempoParaSegundos(String tempoRecebidoString) {
+        
+        int tempoConvertido=0;
+        int minutos=0;
+        int segundos=0;
+        switch(tempoRecebidoString.indexOf(":"))
+        {
+            case 1:
+                minutos=Character.getNumericValue(tempoRecebidoString.charAt(0));
+                segundos= Character.getNumericValue(tempoRecebidoString.charAt(2))*10 + Character.getNumericValue(tempoRecebidoString.charAt(3));
+                break;
+            case 2:
+                minutos=Character.getNumericValue(tempoRecebidoString.charAt(0))*10 + Character.getNumericValue(tempoRecebidoString.charAt(1));
+                segundos= Character.getNumericValue(tempoRecebidoString.charAt(3))*10 + Character.getNumericValue(tempoRecebidoString.charAt(4));
+                break;    
+        }
+        tempoConvertido=minutos*60 + segundos;
+        return tempoConvertido;
     }
 }   

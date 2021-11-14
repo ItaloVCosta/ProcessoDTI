@@ -4,6 +4,7 @@ public class Musica {
     private String duracaoMusica;
     private String favorita;
     private int idAlbum;
+    private int duracaoSegundos;
 
     public String getTituloMusica()
     {
@@ -24,6 +25,11 @@ public class Musica {
     {
         return this.idAlbum;
     }
+
+    public int getDuracaoSegundos()
+    {
+        return this.duracaoSegundos;
+    }
     
     public void setTituloMusica(String tituloRecebido)
     {
@@ -43,6 +49,11 @@ public class Musica {
     public void setIdAlbum(int idRecebido)
     {
         this.idAlbum=idRecebido;
+    }
+
+    public void setDuracaoSegundos(int segundosRecebidos)
+    {
+        this.duracaoSegundos=segundosRecebidos;
     }
  }
 
