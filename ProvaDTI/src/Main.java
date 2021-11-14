@@ -7,6 +7,7 @@ public class Main {
     // Powered by Italo Costa
     public static void main(String[] args) throws Exception {
         ArrayList<Album> objAlbum = new ArrayList<Album>();
+        ArrayList<Musica> objMusica = new ArrayList<Musica>();
         boolean sair=false;
         Scanner Leitura = new Scanner(System.in);
         limparTela();
@@ -20,6 +21,7 @@ public class Main {
                 case 1:
                     limparTela();
                     cadastrarAlbum(Leitura, objAlbum);
+                    cadastrarMusica(Leitura,objAlbum,objMusica);
                     break;
                 case 2:
                     pesquisarAlbum();
@@ -38,6 +40,18 @@ public class Main {
                         System.out.println(objAlbum.get(i).getTituloAlbum());
                         System.out.println(objAlbum.get(i).getAnoLacamento());
                         System.out.println(objAlbum.get(i).getNomeBanda());
+                        //System.out.println(objAlbum.get(i).getIdAlbum());
+                        System.out.printf("******Musicas do Album %d *****\n",i+1);
+                        for(int j=0;j<objMusica.size();j++)
+                        {
+                            if(objMusica.get(j).getIdAlbum()==objAlbum.get(i).getIdAlbum())
+                            {
+                                System.out.println(objMusica.get(j).getTituloMusica());
+                                System.out.println(objMusica.get(j).getDuracaoMusica());
+                                System.out.println(objMusica.get(j).getFavorita());
+                                System.out.println("****************************");
+                            }
+                        }
                     }
                    
                     break;
@@ -80,16 +94,34 @@ public class Main {
     public static void cadastrarAlbum(Scanner scan, ArrayList<Album> objAlbum)
     {
         objAlbum.add(new Album());
+        objAlbum.get(objAlbum.size()-1).setIdAlbum(objAlbum.size());
         System.out.println(" Digite o titulo do Album");
         objAlbum.get(objAlbum.size()-1).setTituloAlbum(lerStringTeclado(scan)); 
         System.out.println(" Digite o Ano de lancamento do Album");
         objAlbum.get(objAlbum.size()-1).setAnoLacamento(Integer.parseInt(lerStringTeclado(scan)));
         System.out.println(" Digite o nome da banda do album");
         objAlbum.get(objAlbum.size()-1).setNomeBanda(lerStringTeclado(scan));  
+        
     }
 
-    public static void cadastrarMusica()
+    public static void cadastrarMusica(Scanner scan, ArrayList<Album> objAlbum, ArrayList<Musica> objMusica)
     {
+        String controleLoop="S";
+        do
+        {
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            System.out.println(" Digite o titulo da musica");
+            objMusica.get(objMusica.size()-1).setTituloMusica(lerStringTeclado(scan));
+            System.out.println(" Digite a duracao da musica (MM:SS)");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica(lerStringTeclado(scan));
+            System.out.println(" Digite se essa é uma música favorita (S ou N)");
+            objMusica.get(objMusica.size()-1).setFavorita(lerStringTeclado(scan));
+            System.out.println(" Deseja inserir mais musicas ? (S ou N)");
+
+        }while(controleLoop.equalsIgnoreCase(lerStringTeclado(scan)));
+
+
 
     }
     
