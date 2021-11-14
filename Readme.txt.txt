@@ -10,3 +10,5 @@ Premissas:
 - Ao inserir o titulo do album, nome da banda e nome musica o usuário deverá digitar apenas caracteres não especiais.
 - Ao informar se a música é favorita, o usuário devera digitar somente "S" para sim e "N" para não
 - Ao informar se deseja inserir mais música, o usuário devera digitar somente "S" para sim e "N" para não
+- Ao pesquisar o nome do album/musica, tem que ser inserido o nome completo, por exemplo, para uma banda "marilia mendonca" , somente
+"marilia" nao é uma correspondencia.

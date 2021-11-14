@@ -11,13 +11,13 @@ public class Main {
         ArrayList<Musica> objMusica = new ArrayList<Musica>();
         boolean sair=false;
         Scanner Leitura = new Scanner(System.in);
+        int idAlbum;
         limparTela();
         while(!sair)
         {
             
             mostrarMenu();
-            int teste =lerOpcaoMenu(Leitura);
-            switch(teste)
+            switch(lerOpcaoMenu(Leitura))
             {
                 case 1:
                     limparTela();
@@ -25,40 +25,22 @@ public class Main {
                     cadastrarMusica(Leitura,objAlbum,objMusica);
                     break;
                 case 2:
-                    int idAlbum=pesquisarAlbum(Leitura,objAlbum,objMusica);
+                    idAlbum=pesquisarAlbum(Leitura,objAlbum,objMusica);
                     if(idAlbum==-1)
                         System.out.println("Album nao encontrado, verifique se os parametros de busca foram digitados corretamente \n");
                         
                     break;
                 case 3:
-                    pesquisarMusica();
+                    idAlbum=pesquisarMusica(Leitura,objAlbum,objMusica);
+                    if(idAlbum==-1)
+                        System.out.println("Album nao encontrado, verifique se os parametros de busca foram digitados corretamente \n");
                     break;
                 case 4:
                     gerarPlaylist();
                     break;
                 case 5:
                     sair=true;
-                    for(int i=0;i<objAlbum.size();i++)
-                    {   
-                        System.out.printf("******Album %d *****\n",i+1);
-                        System.out.println(objAlbum.get(i).getTituloAlbum());
-                        System.out.println(objAlbum.get(i).getAnoLacamento());
-                        System.out.println(objAlbum.get(i).getNomeBanda());
-                        //System.out.println(objAlbum.get(i).getIdAlbum());
-                        System.out.printf("******Musicas do Album %d *****\n",i+1);
-                        for(int j=0;j<objMusica.size();j++)
-                        {
-                            if(objMusica.get(j).getIdAlbum()==objAlbum.get(i).getIdAlbum())
-                            {
-                                System.out.println(objMusica.get(j).getTituloMusica());
-                                System.out.println(objMusica.get(j).getDuracaoMusica());
-                                System.out.println(objMusica.get(j).getFavorita());
-                                System.out.println("****************************");
-                            }
-                        }
-                    }
-                   
-                    break;
+                   break;
                 default:
                     limparTela();
                     System.out.println("Opcao invalida!");
@@ -172,9 +154,39 @@ public class Main {
         return indiceObj;
     }
 
-    public static void pesquisarMusica()
+    public static int pesquisarMusica(Scanner scan, ArrayList<Album> objAlbum, ArrayList<Musica> objMusica)
     {
+        System.out.println("Digite o titulo da musica ou nome da banda:");
+        String dadoLido =lerStringTeclado(scan);
+        int indiceObj=-1;
+        //Verificando pelo titulo da musica
+        for(int i=0;i<objMusica.size();i++)
+        {
+            if(objMusica.get(i).getTituloMusica().equalsIgnoreCase(dadoLido))
+            {
+                objMusica.get(i).getIdAlbum();
+                for(int j=0;j<objAlbum.size();j++)
+                        {
+                            if(objMusica.get(i).getIdAlbum()==objAlbum.get(j).getIdAlbum())
+                            {
+                                printaInfoAlbum(objAlbum, objMusica,j);
+                                indiceObj=0;
+                            }
+                        }
 
+            }
+        }
+        //Verificando pela banda
+        for(int k=0;k<objAlbum.size();k++)
+        {
+            if(objAlbum.get(k).getNomeBanda().equalsIgnoreCase(dadoLido))
+            {
+                printaInfoAlbum(objAlbum, objMusica,k);
+                indiceObj=0;
+            }
+        }
+        
+        return indiceObj;
     }
 
     public static void gerarPlaylist()
