@@ -197,25 +197,52 @@ public class Main {
         Random gerador = new Random();
         ArrayList<Integer> numerosGerados = new ArrayList<Integer>();
         int tempoPlaylist=0;
+        int quatidadeFavorito=0;
 
-        // for para gerar numeros aleatorios diferetes
-        for (int i = 0; ((tempoPlaylist <=3600) && (objMusica.size()>i)); i++) 
+        do
         {
-            numerosGerados.add(gerador.nextInt(objMusica.size()));
-            System.out.println(numerosGerados.get(i));
-            for(int j=0;j<numerosGerados.size();j++)
+            // for para gerar numeros aleatorios diferetes
+            for (int i = numerosGerados.size(); ((tempoPlaylist <3600) && (objMusica.size()>i)); i++) 
             {
-                if(numerosGerados.get(i)==numerosGerados.get(j) && i!=j)
+                numerosGerados.add(gerador.nextInt(objMusica.size()));
+                System.out.println(numerosGerados.get(i));
+                for(int j=0;j<numerosGerados.size();j++)
                 {
-                    numerosGerados.remove(j);
-                    j--;
-                    i--;
+                    if(numerosGerados.get(i)==numerosGerados.get(j) && i!=j)
+                    {
+                        numerosGerados.remove(j);
+                        j--;
+                        i--;
+                    }
+                }
+                tempoPlaylist=0;
+                for(int z=0; z<numerosGerados.size();z++)// Loop que refaz a soma de todas as musicas selecionadas a cada ciclo
+                    tempoPlaylist+=objMusica.get(numerosGerados.get(z)).getDuracaoSegundos();
+            }
+            //for para saber se tem metade favorito
+            quatidadeFavorito=0;
+            for (int i=0;i<numerosGerados.size();i++)
+            {
+                if(objMusica.get(numerosGerados.get(i)).getFavorita().equalsIgnoreCase("s"))
+                    quatidadeFavorito++;
+            }
+            // Testa se entre as musicas escolhidas metade é favorita, se nao deleta do arraylist
+            if(!(quatidadeFavorito>=numerosGerados.size()/2))
+            {
+                for(int i=0;i<numerosGerados.size();i++)
+                {
+                    if(objMusica.get(numerosGerados.get(i)).getFavorita().equalsIgnoreCase("n"))
+                    {
+                        numerosGerados.remove(i);
+                        i--;
+                        tempoPlaylist-=objMusica.get(numerosGerados.get(i)).getDuracaoSegundos();
+                    }
+
                 }
             }
-            tempoPlaylist=0;
-            for(int z=0; z<numerosGerados.size();z++)// Loop que refaz a soma de todas as musicas selecionadas a cada ciclo
-                tempoPlaylist+=objMusica.get(numerosGerados.get(z)).getDuracaoSegundos();
-        }
+        }while(!(quatidadeFavorito>=numerosGerados.size()/2));
+        
+
         System.out.println("Lista de Musicas geradas para voce:");
         for (int k = 0; k < numerosGerados.size(); k++)
         {
