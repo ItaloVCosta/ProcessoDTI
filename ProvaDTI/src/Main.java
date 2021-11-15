@@ -27,7 +27,7 @@ public class Main {
             objMusica.get(objMusica.size()-1).setTituloMusica("a");
             objMusica.get(objMusica.size()-1).setDuracaoMusica("2:00");
             objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
-            objMusica.get(objMusica.size()-1).setFavorita("s");
+            objMusica.get(objMusica.size()-1).setFavorita("n");
 
             objMusica.add(new Musica());
             objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
@@ -76,7 +76,7 @@ public class Main {
             objMusica.get(objMusica.size()-1).setTituloMusica("h");
             objMusica.get(objMusica.size()-1).setDuracaoMusica("3:00");
             objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
-            objMusica.get(objMusica.size()-1).setFavorita("s");
+            objMusica.get(objMusica.size()-1).setFavorita("n");
             
             objAlbum.add(new Album());
             objAlbum.get(objAlbum.size()-1).setIdAlbum(objAlbum.size());
@@ -89,7 +89,7 @@ public class Main {
             objMusica.get(objMusica.size()-1).setTituloMusica("ii");
             objMusica.get(objMusica.size()-1).setDuracaoMusica("2:30");
             objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
-            objMusica.get(objMusica.size()-1).setFavorita("s");
+            objMusica.get(objMusica.size()-1).setFavorita("n");
 
             objMusica.add(new Musica());
             objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
@@ -389,30 +389,36 @@ public class Main {
                     quantidadeFavorito++;
             }
             //verifica se tem nao favoritos a masi
-            while((numerosGerados.size()-quantidadeFavorito)>quantidadeFavorito)
+            if((numerosGerados.size()-quantidadeFavorito)>quantidadeFavorito)
             {
-                for(int i=0;i<numerosGerados.size();i++)
+                while((numerosGerados.size()-quantidadeFavorito)!=quantidadeFavorito)
                 {
-                    if(objMusica.get(numerosGerados.get(i)).getFavorita().equalsIgnoreCase("n"))
+                    for(int i=0;i<numerosGerados.size();i++)
                     {
-                        numerosGerados.remove(i);
-                        i=numerosGerados.size()+1;
-                    }
+                        if(objMusica.get(numerosGerados.get(i)).getFavorita().equalsIgnoreCase("n"))
+                        {
+                            numerosGerados.remove(i);
+                            i=numerosGerados.size()+1;
+                        }
 
+                    }
                 }
             }
             // verifica se tem favortos a mais
-            while((numerosGerados.size()-quantidadeFavorito+1)<quantidadeFavorito)
+            else if((numerosGerados.size()-quantidadeFavorito)<quantidadeFavorito)
             {
-                for(int i=0;i<numerosGerados.size();i++)
+                while(((numerosGerados.size()-quantidadeFavorito)!=quantidadeFavorito))
                 {
-                    if(objMusica.get(numerosGerados.get(i)).getFavorita().equalsIgnoreCase("s"))
+                    for(int i=0;i<numerosGerados.size();i++)
                     {
-                        numerosGerados.remove(i);
-                        i=numerosGerados.size()+1;
-                        quantidadeFavorito--;
-                    }
+                        if(objMusica.get(numerosGerados.get(i)).getFavorita().equalsIgnoreCase("s"))
+                        {
+                            numerosGerados.remove(i);
+                            i=numerosGerados.size()+1;
+                            quantidadeFavorito--;
+                        }
 
+                    }
                 }
             }
             for(int i=0;i<numerosGerados.size();i++)
