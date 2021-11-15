@@ -14,7 +14,98 @@ public class Main {
         Scanner Leitura = new Scanner(System.in);
         int idAlbum;
         limparTela();
+        // Setando o banco de dados para teste
+        {
+            objAlbum.add(new Album());
+            objAlbum.get(objAlbum.size()-1).setIdAlbum(objAlbum.size());
+            objAlbum.get(objAlbum.size()-1).setTituloAlbum("A"); 
+            objAlbum.get(objAlbum.size()-1).setAnoLacamento(1999);
+            objAlbum.get(objAlbum.size()-1).setNomeBanda("AA");
+            // Adicionando musicas
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("a");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("2:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("s");
 
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("b");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("3:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("s");
+
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("c");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("3:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("s");
+
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("d");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("5:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("n");
+            objMusica.add(new Musica());
+
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("e");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("2:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("s");
+
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("f");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("6:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("n");
+
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("g");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("2:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("n");
+
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("h");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("3:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("s");
+            
+            objAlbum.add(new Album());
+            objAlbum.get(objAlbum.size()-1).setIdAlbum(objAlbum.size());
+            objAlbum.get(objAlbum.size()-1).setTituloAlbum("B"); 
+            objAlbum.get(objAlbum.size()-1).setAnoLacamento(1999);
+            objAlbum.get(objAlbum.size()-1).setNomeBanda("BB");
+            // Adicionando musicas
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("ii");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("2:30");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("s");
+
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("jj");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("1:30");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("s");
+
+/*              objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("kk");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("1:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("s");  */
+        }
+        
         while(!sair)
         {
             
@@ -197,15 +288,91 @@ public class Main {
         Random gerador = new Random();
         ArrayList<Integer> numerosGerados = new ArrayList<Integer>();
         int tempoPlaylist=0;
-        int quatidadeFavorito=0;
+        int quantidadeFavorito=0;
+        boolean condicaoLoop=true;
+        int tempoTotalMusicas=0;
+        int minutos=0;
+        int segundos=0;
 
-        do
+        for(int i=0;i<objMusica.size();i++)
+            tempoTotalMusicas+=objMusica.get(i).getDuracaoSegundos();
+
+        if(tempoTotalMusicas>=3600)
+        {
+            do
+            {
+                // for para gerar numeros aleatorios diferetes
+                for (int i = numerosGerados.size(); ((tempoPlaylist <3600) && (objMusica.size()>i)); i++) 
+                {
+                    numerosGerados.add(gerador.nextInt(objMusica.size()));
+                    for(int j=0;j<numerosGerados.size();j++)
+                    {
+                        if(numerosGerados.get(i)==numerosGerados.get(j) && i!=j)
+                        {
+                            numerosGerados.remove(j);
+                            j--;
+                            i--;
+                        }
+                    }
+                    tempoPlaylist=0;
+                    for(int z=0; z<numerosGerados.size();z++)// Loop que refaz a soma de todas as musicas selecionadas a cada ciclo
+                        tempoPlaylist+=objMusica.get(numerosGerados.get(z)).getDuracaoSegundos();
+                }
+                //for para saber se tem metade favorito
+                quantidadeFavorito=0;
+                for (int i=0;i<numerosGerados.size();i++)
+                {
+                    //System.out.println(numerosGerados.get(i));
+                    if(objMusica.get(numerosGerados.get(i)).getFavorita().equalsIgnoreCase("s"))
+                        quantidadeFavorito++;
+                }
+                // Testa se entre as musicas escolhidas metade é favorita, se nao deleta do arraylist
+                condicaoLoop=false;
+                if(!(quantidadeFavorito>=((double)numerosGerados.size()/2)))
+                {   
+                    for(int i=0;i<numerosGerados.size();i++)
+                    {
+                        if(objMusica.get(numerosGerados.get(i)).getFavorita().equalsIgnoreCase("n"))
+                        {
+                            tempoPlaylist-=objMusica.get(numerosGerados.get(i)).getDuracaoSegundos();
+                            numerosGerados.remove(i);
+                            i--;
+                            condicaoLoop=true;
+                        }
+                    }
+                }
+                else if((quantidadeFavorito>=((double)numerosGerados.size()/2 + 1)) || ((numerosGerados.size()%2==0) && quantidadeFavorito>=((double)numerosGerados.size()/2 + 2)) ) // testa se tem mais favoritas do que deveria e deleta para gerar novamente
+                {
+                    {
+                        for(int i=0;i<numerosGerados.size();i++)
+                        {
+                            if(objMusica.get(numerosGerados.get(i)).getFavorita().equalsIgnoreCase("s"))
+                            {
+                                tempoPlaylist-=objMusica.get(numerosGerados.get(i)).getDuracaoSegundos();
+                                numerosGerados.remove(i);
+                                i--;
+                                condicaoLoop=true;
+                            }
+                        }
+                    }
+                    
+                }
+
+                        if(tempoPlaylist >3600)
+                    {
+                        tempoPlaylist=0;
+                        numerosGerados.clear();
+                        condicaoLoop=true;
+                    } 
+
+            }while(condicaoLoop);
+        }
+        else
         {
             // for para gerar numeros aleatorios diferetes
-            for (int i = numerosGerados.size(); ((tempoPlaylist <3600) && (objMusica.size()>i)); i++) 
+            for (int i = numerosGerados.size(); objMusica.size()>i; i++) 
             {
                 numerosGerados.add(gerador.nextInt(objMusica.size()));
-                System.out.println(numerosGerados.get(i));
                 for(int j=0;j<numerosGerados.size();j++)
                 {
                     if(numerosGerados.get(i)==numerosGerados.get(j) && i!=j)
@@ -213,41 +380,63 @@ public class Main {
                         numerosGerados.remove(j);
                         j--;
                         i--;
-                    }
+                    }                
                 }
-                tempoPlaylist=0;
-                for(int z=0; z<numerosGerados.size();z++)// Loop que refaz a soma de todas as musicas selecionadas a cada ciclo
-                    tempoPlaylist+=objMusica.get(numerosGerados.get(z)).getDuracaoSegundos();
             }
-            //for para saber se tem metade favorito
-            quatidadeFavorito=0;
-            for (int i=0;i<numerosGerados.size();i++)
+            for(int i=0;i<numerosGerados.size();i++)
             {
                 if(objMusica.get(numerosGerados.get(i)).getFavorita().equalsIgnoreCase("s"))
-                    quatidadeFavorito++;
+                    quantidadeFavorito++;
             }
-            // Testa se entre as musicas escolhidas metade é favorita, se nao deleta do arraylist
-            if(!(quatidadeFavorito>=numerosGerados.size()/2))
+            //verifica se tem nao favoritos a masi
+            while((numerosGerados.size()-quantidadeFavorito)>quantidadeFavorito)
             {
                 for(int i=0;i<numerosGerados.size();i++)
                 {
                     if(objMusica.get(numerosGerados.get(i)).getFavorita().equalsIgnoreCase("n"))
                     {
                         numerosGerados.remove(i);
-                        i--;
-                        tempoPlaylist-=objMusica.get(numerosGerados.get(i)).getDuracaoSegundos();
+                        i=numerosGerados.size()+1;
                     }
 
                 }
             }
-        }while(!(quatidadeFavorito>=numerosGerados.size()/2));
-        
+            // verifica se tem favortos a mais
+            while((numerosGerados.size()-quantidadeFavorito+1)<quantidadeFavorito)
+            {
+                for(int i=0;i<numerosGerados.size();i++)
+                {
+                    if(objMusica.get(numerosGerados.get(i)).getFavorita().equalsIgnoreCase("s"))
+                    {
+                        numerosGerados.remove(i);
+                        i=numerosGerados.size()+1;
+                        quantidadeFavorito--;
+                    }
 
-        System.out.println("Lista de Musicas geradas para voce:");
+                }
+            }
+            for(int i=0;i<numerosGerados.size();i++)
+            tempoPlaylist+=objMusica.get(numerosGerados.get(i)).getDuracaoSegundos();
+            
+        }
+
+        if(tempoPlaylist!=3600)
+        {
+            minutos=tempoPlaylist/60;
+            segundos=tempoPlaylist-(tempoPlaylist/60 *60);
+            if(segundos>0)
+                System.out.println("Lista de Musicas geradas para voce: " +"\n Tempo Total: "+ minutos +":"+ segundos);
+            else
+            System.out.println("Lista de Musicas geradas para voce: " +"\n Tempo Total: "+ minutos +":00");
+        }
+        else
+        {
+            System.out.println("Lista de Musicas geradas para voce: " +"\n Tempo Total: 1:00:00 ");
+        }
         for (int k = 0; k < numerosGerados.size(); k++)
         {
             System.out.printf("%d--",k+1);
-            System.out.println(objMusica.get(numerosGerados.get(k)).getTituloMusica());
+            System.out.println(objMusica.get(numerosGerados.get(k)).getTituloMusica() + " " + objMusica.get(numerosGerados.get(k)).getFavorita() );
         }    
             
     }      
