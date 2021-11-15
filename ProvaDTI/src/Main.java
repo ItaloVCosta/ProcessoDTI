@@ -13,6 +13,105 @@ public class Main {
         boolean sair=false;
         Scanner Leitura = new Scanner(System.in);
         int idAlbum;
+          // Setando o banco de dados para teste
+          {
+            objAlbum.add(new Album());
+            objAlbum.get(objAlbum.size()-1).setIdAlbum(objAlbum.size());
+            objAlbum.get(objAlbum.size()-1).setTituloAlbum("A"); 
+            objAlbum.get(objAlbum.size()-1).setAnoLacamento(1999);
+            objAlbum.get(objAlbum.size()-1).setNomeBanda("AA");
+            // Adicionando musicas
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("a");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("27:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("s");
+
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("b");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("22:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("s");
+
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("c");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("23:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("s");
+
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("d");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("25:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("s");
+            objMusica.add(new Musica());
+
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("e");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("22:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("s");
+
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("f");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("26:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("s");
+
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("g");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("12:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("n");
+
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("h");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("13:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("n");
+            
+            objAlbum.add(new Album());
+            objAlbum.get(objAlbum.size()-1).setIdAlbum(objAlbum.size());
+            objAlbum.get(objAlbum.size()-1).setTituloAlbum("B"); 
+            objAlbum.get(objAlbum.size()-1).setAnoLacamento(1999);
+            objAlbum.get(objAlbum.size()-1).setNomeBanda("BB");
+            // Adicionando musicas
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("ii");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("12:30");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("n");
+
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("jj");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("11:30");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("n");
+
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("kk");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("1:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("n");
+
+            objMusica.add(new Musica());
+            objMusica.get(objMusica.size()-1).setIdAlbum(objAlbum.size());
+            objMusica.get(objMusica.size()-1).setTituloMusica("ll");
+            objMusica.get(objMusica.size()-1).setDuracaoMusica("11:00");
+            objMusica.get(objMusica.size()-1).setDuracaoSegundos(converteTempoParaSegundos(objMusica.get(objMusica.size()-1).getDuracaoMusica()));;
+            objMusica.get(objMusica.size()-1).setFavorita("n");
+
+        }
         limparTela();
         
         while(!sair)
@@ -282,13 +381,14 @@ public class Main {
                                 i=numerosGerados.size()+1;
                                 quantidadeFavorito--;
                             }
+                            
 
                         }
                     }
                 }
                 condicaoLoop=false;
-                if(tempoPlaylist >3600)
-                    {
+                if(tempoPlaylist >3600 || tempoPlaylist==0)
+                    {                     
                         tempoPlaylist=0;
                         numerosGerados.clear();
                         condicaoLoop=true;
