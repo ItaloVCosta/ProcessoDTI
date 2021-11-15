@@ -136,7 +136,7 @@ public class Main {
                     {
                         idAlbum=pesquisarMusica(Leitura,objAlbum,objMusica);
                         if(idAlbum==-1)
-                            System.out.println("Album nao encontrado, verifique se os parametros de busca foram digitados corretamente \n");
+                            System.out.println("Musica nao encontrada, verifique se os parametros de busca foram digitados corretamente \n");
                     }
                     
                     break;
@@ -275,12 +275,16 @@ public class Main {
         {
             if(objMusica.get(i).getTituloMusica().equalsIgnoreCase(dadoLido))
             {
-                objMusica.get(i).getIdAlbum();
                 for(int j=0;j<objAlbum.size();j++)
                         {
                             if(objMusica.get(i).getIdAlbum()==objAlbum.get(j).getIdAlbum())
                             {
-                                printaInfoAlbum(objAlbum, objMusica,j);
+                                System.out.println("-----------Musica Selecionada-----------");
+                                System.out.println("Titulo da musica: " + objMusica.get(i).getTituloMusica());
+                                System.out.println("Titulo do album: " + objAlbum.get(j).getTituloAlbum());
+                                System.out.println("Duracao da musica: " + objMusica.get(i).getDuracaoMusica());
+                                System.out.println("Nome da banda: " + objAlbum.get(j).getNomeBanda());
+                                System.out.println("-------------------------------");
                                 indiceObj=0;
                             }
                         }
@@ -288,12 +292,19 @@ public class Main {
             }
         }
         //Verificando pela banda
-        for(int k=0;k<objAlbum.size();k++)
+        for(int i=0;i<objAlbum.size();i++)
         {
-            if(objAlbum.get(k).getNomeBanda().equalsIgnoreCase(dadoLido))
+            if(objAlbum.get(i).getNomeBanda().equalsIgnoreCase(dadoLido))
             {
-                printaInfoAlbum(objAlbum, objMusica,k);
-                indiceObj=0;
+                for(int j=0;j<objAlbum.size();j++)
+                        {
+                            if(objMusica.get(i).getIdAlbum()==objAlbum.get(j).getIdAlbum())
+                            {
+                                printaInfoAlbum(objAlbum, objMusica, i);
+                                indiceObj=0;
+                            }
+                        }
+
             }
         }
         
@@ -483,22 +494,19 @@ public class Main {
         System.out.println("Titulo do album: " + objAlbum.get(indice).getTituloAlbum());
         System.out.println("Ano de lancamento: " + objAlbum.get(indice).getAnoLacamento());
         System.out.println("Nome da banda: " + objAlbum.get(indice).getNomeBanda());
-        //System.out.println(objAlbum.get(i).getIdAlbum());
         System.out.printf("--Musicas do Album %d--\n",indice+1);
         for(int j=0;j<objMusica.size();j++)
         {
             if(objMusica.get(j).getIdAlbum()==objAlbum.get(indice).getIdAlbum())
             {
                 System.out.printf("%d-- " + objMusica.get(j).getTituloMusica()+"\n",i);
-                //System.out.println("Duracao: " + objMusica.get(j).getDuracaoMusica());
-                //System.out.println("Duracao em segundos: " + objMusica.get(j).getDuracaoSegundos());
                 i++;
             }
         }
         System.out.println("-------------------------------");
                     
     }
-    
+
     public static int converteTempoParaSegundos(String tempoRecebidoString) {
         
         int tempoConvertido=0;
