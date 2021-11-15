@@ -466,7 +466,8 @@ public class Main {
         for (int k = 0; k < numerosGerados.size(); k++)
         {
             System.out.printf("%d--",k+1);
-            System.out.println(objMusica.get(numerosGerados.get(k)).getTituloMusica() + " " + objMusica.get(numerosGerados.get(k)).getFavorita() );
+            System.out.print(objMusica.get(numerosGerados.get(k)).getTituloMusica() + " ");
+            System.out.println(objMusica.get(numerosGerados.get(k)).getFavorita().equalsIgnoreCase("s")? ("(Favorita)"):"");
         }    
             
     }      
